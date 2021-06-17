@@ -34,7 +34,7 @@ export default function Account({ session }: { session: AuthSession }) {
       const fileExt = file.name.split('.').pop()
       const fileName = `${session?.user.id}${Math.random()}.${fileExt}`
       const filePath = `${fileName}`
-
+      console.log(filePath)
       let { error: uploadError } = await supabase.storage
         .from(DEFAULT_AVATARS_BUCKET)
         .upload(filePath, file)
