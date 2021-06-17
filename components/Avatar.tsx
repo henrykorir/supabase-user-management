@@ -16,6 +16,7 @@ export default function Avatar({ url, size }: { url: string | null; size: number
       if (error) {
         throw error
       }
+      console.log("data:",data)
       const url = URL.createObjectURL(data)
       console.log("url:",url)
       setAvatarUrl(url)
