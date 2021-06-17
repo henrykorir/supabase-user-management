@@ -3,8 +3,9 @@ import { supabase } from '../lib/supabaseClient'
 import { DEFAULT_AVATARS_BUCKET } from '../lib/constants'
 
 export default function Avatar({ url, size }: { url: string | null; size: number }) {
+  console.log("path:",url)
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
-
+  console.log("avatarUrl:",avatarUrl)
   useEffect(() => {
     if (url) downloadImage(url)
   }, [url])
@@ -16,6 +17,7 @@ export default function Avatar({ url, size }: { url: string | null; size: number
         throw error
       }
       const url = URL.createObjectURL(data)
+      console.log("url:",url)
       setAvatarUrl(url)
     } catch (error) {
       console.log('Error downloading image: ', error.message)
